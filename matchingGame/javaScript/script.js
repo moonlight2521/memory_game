@@ -96,11 +96,11 @@ gameGrid.forEach(item => {
 });
 //add match CSS 
 const match = () => {
-  let selected = document.querySelectorAll('.selected');
+  const selected = document.querySelectorAll('.selected');
   selected.forEach(card => {
     card.classList.add('match');
   });
-}
+};
 
 const resetGuesses = () => {
   firstGuess = '';
@@ -116,14 +116,14 @@ const resetGuesses = () => {
 //add event listener to the grid
 grid.addEventListener('click', event => {
   //the event target is when item is clicked
-  let clicked = event.target;
+  const clicked = event.target;
 
   //if the grid section itself is selected do noting
   if (clicked.nodeName === 'SECTION' || clicked === previousTerget || 
   clicked.parentNode.classList.contains('selected') || 
   clicked.parentNode.classList.contains('match')) {return;}
 
-  if (count < 2){
+  if (count < 2) {
     count++;
     if (count === 1){
       //assign first click
@@ -136,15 +136,13 @@ grid.addEventListener('click', event => {
         console.log(secondGuess);
         clicked.parentNode.classList.add('selected');
     }
-    if (firstGuess !== '' && secondGuess !== ''){
+    if (firstGuess && secondGuess){
       // if first guess matches with second guess run the match fuction
       if (firstGuess === secondGuess){
         //run the match function
         setTimeout(match, delay);
-        setTimeout(resetGuesses, delay);
-      } else {
-        setTimeout(resetGuesses, delay);
-      }
+      } 
+      setTimeout(resetGuesses, delay);
     }
     //set previous target to clicked
     previousTerget = clicked;
