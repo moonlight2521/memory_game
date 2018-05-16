@@ -50,7 +50,7 @@ const cardsArray = [
       },
 ];
 //Duplicate array to create a match for for each card
-let gameGrid = cardsArray.concat(cardsArray);
+const gameGrid = cardsArray.concat(cardsArray);
 gameGrid.sort(() => 0.5 - Math.random());
 
 //declear variables 
@@ -106,6 +106,7 @@ const resetGuesses = () => {
   firstGuess = '';
   secondGuess = '';
   count = 0;
+  previousTerget = null;
 
   var selected = document.querySelectorAll('.selected');
   selected.forEach(card => {
