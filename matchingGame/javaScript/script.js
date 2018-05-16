@@ -58,7 +58,7 @@ let count = 0;
 let firstGuess = '';
 let secondGuess = '';
 let previousTerget = null;
-let delay = 1200;
+let delay = 1000;
 
 //grab the div with an id of root
 const game = document.getElementById('game');
